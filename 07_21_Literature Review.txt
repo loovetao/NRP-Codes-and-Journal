@@ -1,0 +1,45 @@
+Date	21 July 2012
+Literature Review:	Medical Image Processing Overview
+			Homgmei Zhu, Uiversity of Calgary
+http://www.fields.utoronto.ca/programs/scientific/03-04/mathmedicine/notes/ZHU_notes.pdf
+
+Three common parameters of an MRI image:
+	T1	Time constant characterizing the return of magnetization vector along the z-axis (dependent on B0)
+	T2	Time constant characterizing the decay of the transverse component (independent of B0)
+	Proton density
+
+	* Images can be further processed to produce new maps regarding water diffusion, blood flow, etc.
+
+Common artifacts in MR Image
+	Gibbs Ringing Artifacts:
+		Result of truncating the Fourier spectrum due to the finite sampling or missing of high frequency data
+		spurious ringing around sharp edges.
+	Aliasing Artifacts:
+		Occurs when sampling rate is less than the Nyquist rate (?)
+		Replications of object overlap.
+		Can be reduced by using non-uniform sampling
+	Motion Artifacts:
+		Due to the motion of the object during data acquisition
+		Most prominent when sampling blood flow, respiratory motion, cardiac motion and gross movements of the body.
+		Image blurring & Ghost
+
+Medical Image Processing
+	Development of problem-specific approaches
+	Purposes:	Selective visualization and further analysis by enhancing images
+	Two areas of research:	general applicable theory and specific applications
+
+Image Segmentation
+	A labeling problem: partitioning of an image to regions that are meaningful for a specific task
+	Classification:
+		Features: pixel intensity, edge information, texture
+		Techniques: 
+			Structural methods: methods based on spatial properties of the image
+			Statistical methods: methods based probability values of pixels determined based on the intensity distribution of the image.
+
+
+
+Thoughts:
+
+1. Due to the existence of various artifacts, the algorithms developed should be able to tolerate the less than perfect conditions of the images. Therefore, images with these artifacts should be used to evaluate the accuracy of the MR Images.
+
+2. Due to the inherent multi-parametric nature of MR Images, the acquisition of multi-specturl images should be relatively simple, therefore I hypothesize that more effective algorithms would utilize these images. Yet processing multiple images significantly increases the amount of computation needed and leads to a longer processing time.

@@ -1,0 +1,126 @@
+Date    02 Jul 2012
+Literature Review: MRI Sengmentation: Methods And Applications
+                   L.P. Clarke et al.
+                   Magnetic Resonance Imaging, Vol 13, No 3, pp. 343-368, 1995
+                   
+Workflow of MRI Segmentation:
+    1. Preprocessing
+    2. Feature Extraction
+    3. Segmentation
+    4. Classification and description
+    
+Preprocessing:
+    Used to suppress uncertainties such as: random image noise, spectral leakage, Gibb's artifact, partial volume effects, MR signal intensity variation
+    1. Noise suppression and contrast enhancement
+	Low Pass Filtering
+	    Lead sot a loss of fine details and clear edges
+	Combination Analysis
+	    Visual improvement without aid in segmentation
+	Adaptive filtering
+	    Bayesian image restoration (?)
+	    Wavelet Analysis
+	    Anisotropic Filtering
+    2. RF Nonuniformity
+	Correction Matrix
+	    The methods assumes RF Penetration of phantom and phantom coil used is the same as that of the image being scanned, which contradicts reality.
+	Digital Filtering
+	    The construction premise, which assumes that the true image is comprised of smooth background with high frequency detail superimposed is not totally correct.
+	Surface Fitting
+	Expectation-Maximizaion
+	    Indication of enhancement of white/grey matter segmentation
+	
+Feature Extraction
+
+    1. Pixel Intensity Based Features
+    	Data may be obtained from a single image, a volume data set or a multispectral data set.
+    2. Calculated Pixel Intensity Based Features
+        Advantages
+        Disadvantates
+            Increased noise generated from non-linear calculations limits the application to MRI tissue classification
+            The segmentation is unstable
+        Applications
+            Classfication of tissues in operator-defined regions
+	* May develop with the introduction of more efficient techniques for MR segmentation such as low flip angle volume imaging methods (?) with short imaging times.
+    3. Edges Based Features
+	Advantages
+		More effective as MR Images are nonuniform, and hence a global threshold cannot segment MRI data.
+	Disadvantages
+		It is unlikely that methods based on edge detection will allow reliable segmentation
+	Specific techniques used:
+		Marr-Hildreth operator (?)
+		Canny Edge detector (?)
+    4. Texutre Based Features
+	Characteristics
+	    Mainly applied for classification rather than delineation
+	    Needs a large number of pixels for classification
+
+Single Image Segmentation
+	Such segmentation methods provide useful information, but is limited to relatively simple structures.
+    1. Threshold-based selection methods
+	The use of a global threshold for segmentation.
+	However, the determination of a threshold is challenging.
+	Largely unsuccessful due to:
+	    1. Varibility of anatomy and MR data
+	    2. Image artifacts
+    2. Edge-based segmentation methods
+	Disadvantages:
+	    Incorrect detection of edges
+	    Over / Under segmentation
+	    Variability of threshold selection in the edge image
+	Specific Methods Discussed:
+	    1. Combination of Edge Detection and Morphological Filtering
+		Able to generate satisfactory 3D displays, but labeling and editing are required.
+	    2. Boundary tracing
+		Successful global segmentation is possible for noisy brain sections and vague boundaries
+		A good initial guess is required
+		Application restricted to large well defined structures.
+		Not to distinguish individual tissue types.
+    3. Seed-growing segmentation methods
+        Commercially available in ANALYZE by Mayo Foundation and Allegro Systems by ISG Technologies
+	Require manually selected seed and threshold
+	Used as a post processing step for noise reduction
+	Only well-defined regions can be robustly identified.
+
+Multispectral Segmentation
+	The methods used are prevalently pattern recognition, but validation of images remain a problem.
+    Supervised methods
+	Parametric pattern recognition methods
+	    Only effective when feature distributions for the different classes are well-known
+	Nonparametric pattern recognition methods
+	    Able to produce more reproducible and more accurate results.
+	Manual feature space segmentation methods
+	    
+    Unsupervised methods (clustering)
+	Disadvantages:
+	    Do not necessarily give meaningful segmentations
+	    Long computation times
+	Advantages:
+	    Reproducible
+	Attmepts to overcome the disadvantages:
+	    Validity Guided reclustering algorithm
+	    Semi-supervised fuzzy c-means
+Classification and Description
+    Manual Classification
+    Region Classification using texture parameters
+	User interaction needed to correct errors
+    Rule Based Classification
+	Rules can be based on intensities of regions and shape
+    Automatic labeling can correct errors of segmentation
+
+Validation
+    MRI Contrast Methods
+	MR contrast information with SE T1-weighted images for tumor volume or size estimations are widely used.
+	May not be the optimum method due to the absence of ground-truth determinations.
+    Validation using phantoms
+	Phantoms do not exhibit the complexity of human tissues
+	RF loading of phantom is different from that of human tissues
+	Limited coincidence in the reliability of segmentation methods
+    Validation using MRI Simulations
+	Not yet used in the validation of MRI Segmentation when the paper was published, but is promising
+    Reproducibility Studies
+    Manual labeling of MRI
+
+Evaluation of Material
+    1. The paper provides a comprehensive overview of different segmentation methods that can be used and the preprocessing steps and methods of validity check available. 
+    2. The paper is quite old as it was published in 1995, yet the general methods should remain the same despite the evolution in specific algorithms.
+    3. The paper primarily focuses the diagnosis of tumor in human brain when citing examples, which is a very narrow aspect of the application of MR images. Therefore, more supplementary information is needed when the reliability of methods mentioned is used in other applications.
